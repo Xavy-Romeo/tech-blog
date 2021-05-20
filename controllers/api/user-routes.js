@@ -3,7 +3,9 @@ const User = require('../../models');
 
 // Get all users
 router.get('/', (req, res) => {
-    User.findAll()
+    User.findAll({
+        attributes: {exclude: ['password']}
+    })
     .then(dbUserData => {
         res.json(dbUserData)
     })
@@ -16,6 +18,9 @@ router.get('/', (req, res) => {
 // Get one user
 router.get('/:id', (req, res) => {
     User.findOne({
+        attributes: {
+            exclude: ['password']
+        },
         where: {
             id: req.params.id
         }
@@ -52,6 +57,7 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
     // expects: {username: 'Xavy', email: 'xavy@gmail.com', password: 'Password1234'}
     User.update(req.body, {
+        individualHooks: true,
         where: {
             id: req.params.id
         }
