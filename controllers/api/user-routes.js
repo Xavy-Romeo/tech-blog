@@ -53,6 +53,39 @@ router.post('/', (req, res) => {
     });
 });
 
+// User login route
+router.post('/login', (req, res) => {
+    // expects: {email: 'xavy@gmail.com, password: 'Password1234'}
+    User.findOne({
+        // attributes: {
+        //     exclude: ['password']
+        // },
+        where: {
+            email: req.body.email
+        }
+    })
+    .then(dbUserData => {
+        if (!dbUserData) {
+            res.status(400).json({message: 'No user found with that email address!'});
+            return;
+        }
+
+        // verify user
+        const validPassword = dbUserData.checkPassword(req.body.password);
+
+        if (!validPassword) {
+            res.status(400).json({message: 'Incorrect password!'});
+            return;
+        }
+
+        res.json({user: dbUserData, message: 'You are now logged in!'});
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
+
 // Update a user
 router.put('/:id', (req, res) => {
     // expects: {username: 'Xavy', email: 'xavy@gmail.com', password: 'Password1234'}
