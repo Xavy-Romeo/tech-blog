@@ -22,7 +22,7 @@ User.init(
         username: {
             type: DataTypes.STRING,
             allowNull: false,
-            // do not allow duplicate emails in user table 
+            // do not allow duplicate usernames in user table 
             unique: true
         },
         email: {
@@ -37,7 +37,7 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len: [4]
+                len: [8]
             }
         }
     },
