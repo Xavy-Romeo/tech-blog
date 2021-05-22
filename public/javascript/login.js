@@ -23,8 +23,8 @@ async function loginFormHandler(event) {
         });
     
         if (user.ok) {
-            // redirect to homepage
-            document.location.replace('/');
+            // redirect to dashboard
+            document.location.replace('/dashboard');
         } else {
             alert(user.statusText);
         }
@@ -56,7 +56,7 @@ async function signupFormHandler(event) {
             
         // check the new user status
         if (newUser.ok) {
-            // after successful post, redirect to dashboard endpoint
+            // after successful post, redirect to dashboard
             document.location.replace('/dashboard');
         }
         else {

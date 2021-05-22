@@ -16,12 +16,12 @@ router.get('/', (req, res) => {
 router.post('/', withAuth, (req, res) => {
     // check if session exists
     if (req.session) {
-        // expects {content: 'comment text', user_id: 1, post_id: 1}
+        // expects {content: 'comment text', post_id: 1}
         Comment.create({
             content: req.body.content,
-            user_id: req.body.user_id,
             // use the id from the session
-            post_id: req.session.post_id
+            user_id: req.session.user_id,
+            post_id: req.body.post_id
         })
         .then(dbCommentData => res.json(dbCommentData))
         .catch(err => {
