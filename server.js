@@ -1,8 +1,10 @@
 // require dependencies
 const express = require('express');
 const exphbs = require('express-handlebars');
+const session = require('express-session');
 const path = require('path');
 
+// require controllers
 const controllers = require('./controllers');
 
 // instantiate the server
@@ -12,6 +14,22 @@ const PORT = process.env.PORT || 3333;
 
 // sequelize connection
 const sequelize = require('./config/connection');
+// setup store
+const SequelizeStore = require('connect-session-sequelize')(session.Store)
+
+// session object
+const sess = {
+    secret: 'Super super secret xxx**!!**xxx',
+    cookie: {},
+    resave: false,
+    saveUninitialized: true,
+    store: new SequelizeStore({
+        db: sequelize
+    })
+};
+
+// express-session middleware
+app.use(session(sess));
 
 const hbs = exphbs.create({});
 

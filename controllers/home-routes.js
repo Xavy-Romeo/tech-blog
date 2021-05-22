@@ -33,7 +33,14 @@ router.get('/', (req, res) => {
 });
 
 router.get('/login', (req, res) => {
+    // check if logged in
+    if (req.session.loggedIn) {
+      // redirect to homepage
+      res.redirect('/');
+      return;
+    }
+    // redirect to login page if not logged in
     res.render('login');
-});
+  });
 
 module.exports = router;
