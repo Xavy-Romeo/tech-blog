@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const {User, Post, Comment} = require('../../models');
+const withAuth = require('../../utils/withAuth');
 
 // get all posts
 router.get('/', (req, res) => {
@@ -66,22 +67,23 @@ router.get('/:id', (req, res) => {
 });
 
 // create a post
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
     // expects {title: 'Xavy is the best!', content: 'Xavy is the best! Yay!!!', user_id: 1} 
     Post.create({
         title: req.body.title,
         content: req.body.content,
-        user_id: req.body.user_id
+        // use the id from the session
+        user_id: req.session.user_id
     })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
-    })
+    });
 });
 
 // update a post
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
     // expects {title: 'Updated title'}
     // or {content: 'Updated content'}
     // or {title: 'Updated title', content: 'Updated content'}
@@ -126,7 +128,7 @@ router.put('/:id', (req, res) => {
 });
 
 // delete a post
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
     Post.destroy({
         where: {
             id: req.params.id

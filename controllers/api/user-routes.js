@@ -71,10 +71,7 @@ router.post('/login', (req, res) => {
     // or {email: '', username: 'Xavy', password: 'Password1234'}
     User.findOne({
         where: {
-            [Op.or]: [
-                {email: req.body.email}, 
-                {username: req.body.username}
-            ]
+            email: req.body.email
         }
     })
     .then(dbUserData => {
