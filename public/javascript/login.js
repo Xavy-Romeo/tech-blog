@@ -12,7 +12,6 @@ async function loginFormHandler(event) {
   
     // check if all inputs were entered
     if (email && password) {
-        console.log('am i here now???')
         const user = await fetch('/api/users/login', {
             method: 'post',
             body: JSON.stringify({
