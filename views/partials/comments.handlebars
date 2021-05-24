@@ -1,12 +1,22 @@
 <div class="comments">
-    {{#each this}}
-    <section class="comment">
-        <div class="meta">
-            {{user.username}} on {{created_at}}
-        </div>
-        <div class="text">
-            {{content}}
-        </div>
-    </section>
-    {{/each}}
+    <div class="comment-header"></div>
+
+    <ul>
+        {{#each this}}
+        <li>
+            <section class="comment">
+                
+                <div class="text">
+                    {{content}}
+                </div>
+
+                <div class="comment-meta">
+                    -- By: {{user.username}} on {{created_at}}
+                </div>
+            
+            </section>
+        </li>
+        {{/each}}
+    </ul>
+
 </div>

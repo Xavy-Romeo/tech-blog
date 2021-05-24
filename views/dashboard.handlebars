@@ -1,37 +1,20 @@
-<section>
-    <h2>Create New Blog</h2>
-
-    <form class="new-blog-form">
-        
-        <div>
-            <label for="post-title">Blog Title:</label>
-            <input type="text" id="post-title" name="post-title" />
-        </div>
-        
-        <div>
-            <label for="post-content">Blog Text:</label>
-            <input id="post-content" name="post-content" />
-        </div>
-        
-        <button type="submit" class="btn">Create</button>
-    
-    </form>
-</section>
+<a class="add-new-btn" href="/dashboard/new"><button>Add New Post</button></a>
 
 {{#if posts.length}}
-<section>
-    <h2>Your Posts</h2>
+<section class="blog-list">
+    <div>
+        <h2>Your Blogs</h2>
+    </div>
     
-    <ol>
-        {{#each posts as |post|}}
-        <li>
-            {{> post-info post}}
-            <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
-        </li>
-        {{/each}}
-    </ol>
-
+    <div>
+        <ul>
+            {{#each posts as |post|}}
+            <li>
+                {{> post-info post}}
+                <button><a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit Post</a></button>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
 </section>
 {{/if}}
-
-<script src="/javascript/add-post.js"></script>

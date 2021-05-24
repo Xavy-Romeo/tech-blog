@@ -89,4 +89,15 @@ router.get('/login', (req, res) => {
     res.render('login');
   });
 
+  router.get('/signup', (req, res) => {
+    // check if logged in
+    if (req.session.loggedIn) {
+      // redirect to homepage
+      res.redirect('/');
+      return;
+    }
+    // redirect to login page if not logged in
+    res.render('signup');
+  });
+
 module.exports = router;

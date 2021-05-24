@@ -116,7 +116,6 @@ router.post('/logout', (req, res) => {
     }
 });
 
-
 // Update a user
 router.put('/:id', (req, res) => {
     // expects: {username: 'Xavy', email: 'xavy@gmail.com', password: 'Password1234'}

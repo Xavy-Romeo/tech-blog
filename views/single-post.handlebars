@@ -1,19 +1,27 @@
-{{> post-info post}}
+
 
 <!--if logged in display comment form-->
 {{#if loggedIn}}
 <form class="comment-form">
-    <!-- comment textarea -->
-    <div>
-        <textarea name="comment-body"></textarea>
-    </div>
+    
+    <div class="comment-header"></div>
 
-    <!-- comment submit button -->
-    <div>
-        <button type="submit">add comment</button>
+    <div class="form-body">
+        <!-- comment textarea -->
+        <div>
+            <label for="comment-body">Comment</label>
+            <textarea class="textarea comment-textarea" name="comment-body"></textarea>
+        </div>
+
+        <!-- comment submit button -->
+        <div>
+            <button type="submit">Add Comment!</button>
+        </div>
     </div>
 </form>
 {{/if}}
+
+{{> post-info post}}
 
 {{> comments post.comments}}
 

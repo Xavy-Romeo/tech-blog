@@ -1,0 +1,244 @@
+/* root colors */
+:root {
+    --primary-color: rgb(207, 218, 193);
+    --secondary-color: rgb(31, 14, 14);
+    --tertiary-color: rgb(180, 176, 176);
+}
+
+/* universal styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    background-color: var(--primary-color);
+}
+
+main { 
+    margin: 20px 40px 200px 40px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+/* apply styles to header */
+header {
+    
+    background-color: var(--secondary-color);
+    height: 150px;
+    padding: 20px 40px;
+}
+
+header a {
+    text-decoration: none;
+}
+
+header nav a {
+    color: var(--primary-color);
+    font-size: 18px;
+    margin: 0 50px 10px 0;
+}
+
+header nav button {
+    color: var(--primary-color);
+    font-size: 18px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+header h1 {
+    margin: 20px 0;
+}
+
+header h1 a{
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+    margin: 20px 0;
+    padding: 3px 10px;
+    border: 2px solid var(--tertiary-color);
+    border-radius: 8px;
+    box-shadow: 5px 5px var(--tertiary-color);
+    font-weight: bold;
+}
+/* end header styles */
+
+/* form styles */
+.login-form, .signup-form, .new-blog-form, .edit-post-form {
+    border: 2px solid var(--secondary-color);
+    max-width: 700px; 
+}
+
+.form-header {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 10px 15px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.form-body {
+    padding: 10px 15px;
+}
+
+.form-body div {
+    padding: 10px 0;
+}
+
+.form-body label {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+.form-body input {
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.form-body button {
+    background-color: var(--tertiary-color);
+    width: 100%;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    height: 40px;
+    margin: 0 0 10px 0;
+}
+
+.form-body a {
+    text-decoration: none;
+    color: blue;
+    font-weight: bold;
+}
+
+.textarea {
+    height: 300px;  
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 20px;
+}
+/* end form styles */
+
+/* post styles */
+.post {
+    border: solid 2px var(--secondary-color);
+    border-radius: 3px;
+}
+
+.post-header {
+    background-color: var(--secondary-color);
+    color: var(--tertiary-color);
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    font-size: 12px;
+}
+
+.post-header a {
+    text-decoration: none;
+    color: var(--tertiary-color);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.post-content {
+    padding: 10px 15px;
+    color: var(--secondary-color);
+}
+/* end post styles */
+
+/* add new post button styles */
+.add-new-btn {
+    width: 30%;
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    margin: 30px auto 20px auto;
+    display: block;
+    text-align: center;
+    padding: 10px;
+    border: 2px solid var(--tertiary-color);
+}
+
+.add-new-btn button {
+    border: none;
+    margin: 0;
+    padding: 0;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    font-size: 20px;
+    font-weight: bold;
+}
+/* end add new post button styles */
+
+/* comment styles */
+.comment-form, .comments {
+    border: solid 2px var(--secondary-color);
+    border-radius: 3px;
+    margin: 10px 0;
+}
+
+.comment-header {
+    height: 40px;
+    background-color: var(--secondary-color);
+}
+
+.comment-textarea {
+    height: 100px;
+}
+
+.comment {
+    padding: 10px 15px;
+}
+
+.comment-meta {
+    padding: 5px 0 0 15px;
+}
+/*end comment styles */
+
+/* blog list styles */
+.blog-list {
+    margin: 10px 0;
+}
+
+.blog-list li {
+    margin: 10px 0 15px 0;
+}
+
+.blog-list button {
+    margin: 5px 0;
+    background-color: var(--tertiary-color);
+    border-radius: 3px;
+}
+
+.blog-list button a {
+    color: var(--secondary-color);
+    padding: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+/* end blog list styles */
+
+footer {
+    display: flex;
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+}
