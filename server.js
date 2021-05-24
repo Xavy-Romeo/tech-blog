@@ -31,7 +31,9 @@ const sess = {
 // express-session middleware
 app.use(session(sess));
 
-const hbs = exphbs.create({});
+const helpers = require('./utils/helpers');
+
+const hbs = exphbs.create({helpers});
 
 // handlebars template engine
 app.engine('handlebars', hbs.engine);
